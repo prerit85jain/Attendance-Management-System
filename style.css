@@ -1,0 +1,148 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #0086c7;
+    padding: 10px 20px;
+    height: 60px;
+    color: white;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    margin-right: 10px;
+}
+
+.header-info {
+    display: flex;
+    align-items: center;
+    width: 450px;
+    font-size: 1.5rem;
+
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+
+
+.main-content {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: white;
+    padding: 10px 10px;
+    border-right: 1px solid #ddd;
+}
+
+.menu-list {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.menu-title {
+    font-weight: bold;
+    color: #0086c7;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.menu-list li {
+    margin-bottom: 10px;
+}
+
+.menu-list a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.menu-list a:hover {
+    font-size: 1rem;
+    transition: .3s linear;
+}
+
+.content {
+    flex-grow: 1;
+    display: flex;
+    padding: 20px;
+}
+.prediction{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    background-color: #f5f7fa;
+}
+.prediction1{
+    background-color: #f5f7fa;
+    display: flex;
+    gap: 50px;
+    padding: 10px 40px;
+    width: 70vw;
+    height: 300px;
+}
+.dept{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    height: 250px;
+    width: 340px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px black;
+}
+.dept:hover{
+    transition: .5s linear;
+    transform: scale(1.1);
+}
+.prediction2{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    height: 100px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 10px;
+    margin: 40px;
+}
+.label{
+    display: flex;
+
+}
+#depart{
+    height: 30px;
+    background-color: transparent;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 400px;
+    padding: 5px 10px ;
+    margin: 20px;
+}
+.overall{
+    display: flex;
+    margin: 40px;
+    height: 400px;
+    justify-content: center;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 10px;
+}
