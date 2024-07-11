@@ -17,13 +17,12 @@
 <body>
     <div class="container">
         <header class="header">
-            <img src="/static/icon.png" alt="GLA University Logo" class="logo">
-            <div class="header-info">
-                GLA UNIVERSITY
-
+            <div class="side-heading">
+                <img src="/static/icon.png" alt="GLA University Logo" class="logo">
+                <div class="header-info">GLA UNIVERSITY</div>
             </div>
             <div class="menu">
-                <h1>Admission Prediction Portal</h1>
+                <h1>Admission Predictor</h1>
             </div>
         </header>
 
@@ -31,37 +30,36 @@
             <aside class="sidebar">
                 <ul class="menu-list">
                     <li class="menu-title">ACADEMIC</li>
-                    <li><a href="/">Dashboard</a></li>
-                    <li><a href="">Registration</a></li>
-                    <li><a href="/attendance">Attendance</a></li>
-                    <li><a href="">Main Account</a></li>
-                    <li><a href="">Policies</a></li>
-                    <li><a href="">My Advisor</a></li>
-                    <li><a href="">Fee Details</a></li>
-                    <li><a href="">Value Added Course</a></li>
-                    <li><a href="">Online Class</a></li>
-                    <li><a href="">Questionnaire Panel</a></li>
-                    <li><a href="">GLAMS Notification</a></li>
+                    <li class="items"><a href="/"><img src="/static/das.png" alt="" class="side-icon"><span>Dashboard<span></a></li>
+                    <li class="items"><a href=""><img src="/static/registration.png" alt="" class="side-icon"><span>Registration<span></a></li>
+                    <li class="items"><a href="/attendance"><img src="/static/att.png" alt="" class="side-icon"><span>Attendance<span></a></li>
+                    <li class="items"><a href=""><img src="/static/acc.png" alt="" class="side-icon"><span>Main Account<span></a></li>
+                    <li class="items"><a href=""><img src="/static/policy.png" alt="" class="side-icon"><span>Policies<span></a></li>
+                    <li class="items"><a href=""><img src="/static/adv.png" alt="" class="side-icon"><span>My Advisor<span></a></li>
+                    <li class="items"><a href=""><img src="/static/fee.png" alt="" class="side-icon"><span>Fee Section<span></a></li>
+                    <li class="items"><a href=""><img src="/static/sch.png" alt="" class="side-icon"><span>Value Added Course<span></a></li>
+                    <li class="items"><a href=""><img src="/static/online.png" alt="" class="side-icon"><span>Online Class<span></a></li>
+                    <li class="items"><a href=""><img src="/static/quest.png" alt="" class="side-icon"><span>Questionnaire panel<span></a></li>
+                    <li class="items"><a href=""><img src="/static/notif.png" alt="" class="side-icon"><span>GLAMS Notification<span></a></li>
                     <li class="menu-title">EXAM</li>
-                    <li><a href="">View Result</a></li>
-                    <li><a href="">CPI Calculator</a></li>
-                    <li><a href="">Achievements</a></li>
+                    <li class="items"><a href=""><img src="/static/res.png" alt="" class="side-icon"><span>View result<span></a></li>
+                    <li class="items"><a href=""><img src="/static/calc.png" alt="" class="side-icon"><span>CPI Calculator<span></a></li>
+                    <li class="items"><a href=""><img src="/static/achievement.png" alt="" class="side-icon"><span>Achievements<span></a></li>
                     <li class="menu-title">HOSTEL / MESS / TRANSPORT</li>
-                    <li><a href="">Book My Hostel</a></li>
+                    <li class="items"><a href=""><img src="/static/hostel.png" alt="" class="side-icon"><span>Book My Hostel<span></a></li>
                     <li class="menu-title">OTHER</li>
-                    <li><a href="">Library Account</a></li>
-                    <li><a href="/admission_predictor">Admission Prediction</a></li>
-                    <li><a href="/placement_predictor">Placement Prediction</a></li>
+                    <li class="items"><a href=""><img src="/static/lib.png" alt="" class="side-icon"><span>Library Account<span></a></li>
+                    <li class="items"><a href="/admission_predictor"><img src="/static/place.png" alt="" class="side-icon"><span>Admissions Predictor<span></a></li>
+                    <li class="items"><a href="/placement_predictor"><img src="/static/place.png" alt="" class="side-icon"><span>Placements Predictor<span></a></li>
                 </ul>
             </aside>
             <section class="content">
                 <div class="select">
                     <div class="label">
                         <label for="course">
-                            <h3>Select Department for checking Admission Details</h3>
+                            <h3>Select Department</h3>
                         </label>
                         <form id="courseForm_Admission">
-                            <label for="course">Select a course:</label>
                             <select id="course" name="course">
                                 {% for course in courses %}
                                 <option value="{{ course }}">{{ course }}</option>
@@ -74,12 +72,17 @@
 
                 <div class="total">
                     <div class="ad">
-                        <section><h3>Total admissions predicted: <span id="predicted_admission"></span></section>
+                        <section><h3>The Number of admissions predicted for this year : <span id="predicted_admission"></span></section>
                     </div>
                 </div>
-                <div class="diag">
-                    <div class="labels">
-                        <img id="plot_admission" src="/static/icon.png" >
+                <div class="diag-container">
+                    <div class="diag">
+                        <div class="diag_heading">
+                            <h1> Histogram to depict the predicted trend</h1>
+                        </div>
+                        <div class="labels">
+                            <img id="plot_admission" src="">
+                        </div>
                     </div>
                     <div class="video">
                         <video width="500" height="500" autoplay preload="auto" loop muted>
@@ -125,8 +128,6 @@
                         </tbody>
                       </table>
                 </div>
-
-
             </section>
         </div>
     </div>
