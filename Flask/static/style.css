@@ -213,3 +213,18 @@ body {
     height: 300px;
     width: 530px;
 }
+.table tr{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 17px;
+    height: 50px;
+    width: 80vw;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 2px black;
+    border-radius: 3px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: auto;
+}
