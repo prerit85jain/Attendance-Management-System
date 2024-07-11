@@ -27,7 +27,7 @@ def create_admission_plot(course):
     years_extended = np.append(df_admission['Year'], 2024).reshape(-1, 1)
     predictions_extended = model.predict(years_extended)
 
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(8, 4))
 
     plt.bar(df_admission['Year'], df_admission[course], label='Admissions', alpha=0.5, color='blue')
     plt.bar(2024, predicted_admission, label='Predicted Admission for 2024', alpha=0.5, color='green')
@@ -70,7 +70,7 @@ def create_placement_plot(course):
     new_row = pd.DataFrame({'Year': [2024], 'Total Students': [300], 'Students Placed': [predicted_placement[0]]})
     df_placement = pd.concat([df_placement, new_row], ignore_index=True)
 
-    plt.figure(figsize=(12, 6))
+    plt.figure(figsize=(8, 5))
     plt.bar(df_placement['Year'], df_placement['Students Placed'], color='lightblue', label='Students Placed')
     plt.xlabel('Year')
     plt.ylabel('Students Placed')
@@ -107,11 +107,14 @@ def attendance():
 def admission():
     return render_template("admission.html", courses=list(data_admission.keys())[1:])
 
+
 @app.route('/get_admission_data', methods=['POST'])
 def get_admission_data():
     course = request.form['course']
     plot_url, predicted_admission = create_admission_plot(course)
     return jsonify(plot_url=plot_url, predicted_admission=predicted_admission)
+
+
 
 @app.route('/placement_predictor')
 def placement():
