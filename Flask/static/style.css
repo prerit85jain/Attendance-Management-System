@@ -68,7 +68,10 @@ body {
 }
 
 .sidebar {
+    position: sticky;
+    top: 0px;
     width: 20.52%;
+    height: fit-content;
     background-color: white;
     padding: 10px 10px;
     border-right: 1px solid #ddd;
@@ -365,18 +368,108 @@ body {
     width: 100%;
     height: inherit;
 }
-.table tr{
+
+.past{
     display: flex;
+    flex-direction: column;
+    background: rgb(0,134,199);
+    background: linear-gradient(90deg, rgba(0,134,199,1) 0%, rgba(46,175,216,1) 16%, rgb(87, 205, 244) 50%, rgba(46,175,216,1) 88%, rgba(0,134,199,1) 100%);
+    box-shadow: 3px 3px 6px 0px rgba(128,129,130,1);
+    border-radius: 5px;
+    margin: 2px;
+}
+.past .timeline-heading{
+    margin: 0;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+.past .container{
+    position: relative;
+    padding: 0 40px;
+}
+.past .container .timeline-container{
+    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    font-size: 17px;
-    height: 50px;
-    width: 80vw;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 1px 1px 2px black;
-    border-radius: 3px;
-    text-wrap: nowrap;
-    overflow: hidden;
-    white-space: nowrap;
-    margin: auto;
+    flex-direction: column;
+    gap: 15px;
+    padding: 0 40px;
+    padding-bottom: 20px;
+    position: relative;
+    width: auto;
+}
+.card-container{
+    width: 60%;
+    height: auto;
+    padding: 10px 20px;
+    background-color: white;
+    position:relative;
+    border-radius: 6px;
+}
+
+.card-container:hover{
+    box-shadow: 3px 3px 6px 0px rgba(128,129,130,1);
+}
+
+.card-container:hover .circle{
+    box-shadow: 3px 3px 6px 0px rgba(128,129,130,1);
+}
+
+.timeline-container::after{
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    background-color: #fff;
+    top: 0;
+    left: 84.8%;
+    margin-left: -3px;
+    
+}
+
+.arrow{
+    height: 0;
+    width: 0;
+    position: absolute;
+    top: 7px;
+    z-index: 1;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid white;
+    right: -10px;
+}
+.circle{
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top:7px;
+    right: -54px;
+    z-index: 1;
+}
+
+.circle .inner-circle{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgb(0,134,199);
+    background: linear-gradient(90deg, rgba(0,134,199,1) 0%, rgba(46,175,216,1) 16%, rgb(87, 205, 244) 50%, rgba(46,175,216,1) 88%, rgba(0,134,199,1) 100%);
+}
+.card-container .head{
+    font-size: 12px;
+    color: rgb(104, 106, 107);
+    margin-top: 5px;
+}
+.card-container .value{
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(90deg, rgb(3, 107, 160) 0%, rgb(34, 153, 189) 16%, rgb(104, 165, 236) 50%, rgb(34, 153, 189) 88%, rgb(3, 107, 160) 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 5px;
 }
