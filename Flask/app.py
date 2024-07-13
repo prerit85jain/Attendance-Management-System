@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, render_template, request, json
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -112,7 +112,8 @@ def admission():
 def get_admission_data():
     course = request.form['course']
     plot_url, predicted_admission = create_admission_plot(course)
-    return jsonify(plot_url=plot_url, predicted_admission=predicted_admission)
+    dict_admission= df_admission[['Year', course]].to_dict(orient='records')
+    return jsonify(plot_url=plot_url, predicted_admission=predicted_admission, dict_admission=dict_admission)
 
 
 
@@ -124,7 +125,9 @@ def placement():
 def get_placement_data():
     course = request.form['course']
     plot_url, predicted_placement = create_placement_plot(course)
-    return jsonify(plot_url=plot_url, predicted_placement=predicted_placement)
+    df_placement = data_placement[course]
+    dict_placement = df_placement[['Year','Students Placed']].to_dict(orient='records')
+    return jsonify(plot_url=plot_url, predicted_placement=predicted_placement, dict_placement=dict_placement)
 
 
 if __name__ == "__main__":
