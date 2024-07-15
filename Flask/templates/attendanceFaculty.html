@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLA University Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="side-heading">
+                <img src="/static/icon.png" alt="GLA University Logo" class="logo">
+                <div class="header-info">GLA UNIVERSITY</div>
+            </div>
+            <div class="menu">
+                <h1>DashBoard</h1>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <ul class="menu-list">
+                    <li class="menu-title">ACADEMIC</li>
+                    <li class="items"><a href="/"><img src="/static/das.png" alt=""
+                                class="side-icon"><span>Dashboard<span></a></li>
+                    <li class="items"><a href=""><img src="/static/registration.png" alt=""
+                                class="side-icon"><span>Registration<span></a></li>
+                    <li class="items"><a href="/attendance"><img src="/static/att.png" alt=""
+                                class="side-icon"><span>Attendance<span></a></li>
+                    <li class="items"><a href=""><img src="/static/acc.png" alt="" class="side-icon"><span>Main
+                                Account<span></a></li>
+                    <li class="items"><a href=""><img src="/static/policy.png" alt=""
+                                class="side-icon"><span>Policies<span></a></li>
+                    <li class="items"><a href=""><img src="/static/adv.png" alt="" class="side-icon"><span>My
+                                Advisor<span></a></li>
+                    <li class="items"><a href=""><img src="/static/fee.png" alt="" class="side-icon"><span>Fee
+                                Section<span></a></li>
+                    <li class="items"><a href=""><img src="/static/sch.png" alt="" class="side-icon"><span>Value Added
+                                Course<span></a></li>
+                    <li class="items"><a href=""><img src="/static/online.png" alt="" class="side-icon"><span>Online
+                                Class<span></a></li>
+                    <li class="items"><a href=""><img src="/static/quest.png" alt=""
+                                class="side-icon"><span>Questionnaire panel<span></a></li>
+                    <li class="items"><a href=""><img src="/static/notif.png" alt="" class="side-icon"><span>GLAMS
+                                Notification<span></a></li>
+                    <li class="menu-title">EXAM</li>
+                    <li class="items"><a href=""><img src="/static/res.png" alt="" class="side-icon"><span>View
+                                result<span></a></li>
+                    <li class="items"><a href=""><img src="/static/calc.png" alt="" class="side-icon"><span>CPI
+                                Calculator<span></a></li>
+                    <li class="items"><a href=""><img src="/static/achievement.png" alt=""
+                                class="side-icon"><span>Achievements<span></a></li>
+                    <li class="menu-title">HOSTEL / MESS / TRANSPORT</li>
+                    <li class="items"><a href=""><img src="/static/hostel.png" alt="" class="side-icon"><span>Book My
+                                Hostel<span></a></li>
+                    <li class="menu-title">OTHER</li>
+                    <li class="items"><a href=""><img src="/static/lib.png" alt="" class="side-icon"><span>Library
+                                Account<span></a></li>
+                    <li class="items"><a href="/admission_predictor"><img src="/static/place.png" alt=""
+                                class="side-icon"><span>Admissions Predictor<span></a></li>
+                    <li class="items"><a href="/placement_predictor"><img src="/static/place.png" alt=""
+                                class="side-icon"><span>Placements Predictor<span></a></li>
+                </ul>
+            </aside>
+
+            <section class="content-container">
+                <div class="inner-container">
+                    <div>
+                        <h1>GLA University</h1>
+                    </div>
+                    <div>
+                        <img src="/static/icon.png" alt="GLA University Logo">
+                    </div>
+                    <div>
+                        <h2>Welcome to Faculty Portal</h2>
+                    </div>
+                </div>
+                <div class="faculty-details">
+                    <h1>Faculty-Details</h1>
+                    <div class="avatar">
+                        <img src="/static/avatar.png" alt="">
+                        <div class="details">
+                            <div class="name">
+                                <h4>Name:-</h4>
+                            </div>
+                            <div class="id">
+                                <h4>Id No.:-</h4>
+                            </div>
+                            <div class="depart">
+                                <h4>Department:-</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="current">
+                    <div class="head">
+                        <h1>Ongoing Lecture</h1><img class="green" src="/static/green.png" alt="">
+                    </div>
+                    <div class="lect">
+                        <div class="code">
+                            <h3>Lecture Code:-&nbsp;</h3>
+                            <p>BCSC 1008 , Operating Systems</p>
+                        </div>
+                        <div class="room">
+                            <h3>Room No:- &nbsp;</h3>
+                            <p>AB-1, 212</p>
+                        </div>
+                        <div class="time">
+                            <h3>Timing:- &nbsp;</h3>
+                            <p>12:00pm to 1:00pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="attendance">
+                    <div class="attend"><h1>Attendance</h1></div>
+                    <div class="generate">
+                        <h3>Genarate Qr code and OTP for marking attendance</h3>
+                        <button id="btn">Generate</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
