@@ -1,0 +1,368 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 0;
+    padding: 0;
+    background-color: #f5f7fa;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #0086c7;
+    height: 60px;
+    color: white;
+    box-shadow: 0px 5px 5px 0px rgba(189,183,189,1);
+}
+
+.header .side-heading{
+    width: 20%;
+    height: 35px;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    min-width: 20vw;
+    font-size: 1.3em;
+    box-shadow: 5px 0px 5px 0px #0276b0;
+}
+
+.header .side-heading .header-info{
+    margin: 2px;
+}
+
+.header .side-heading .logo {
+    display: block;
+    width: 38px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.header .menu {
+    height: 60px;
+    min-width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;  
+}
+
+.header .menu h1{
+    font-size: 1.5em;
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.sidebar {
+    display: flex;
+    top: 0px;
+    width: 20.52%;
+    height: fit-content;
+    background-color: white;
+    padding: 10px 10px;
+    border-right: 1px solid #ddd;
+    box-shadow: 5px 0px 5px 0px rgba(189,183,189,1);
+}
+
+.menu-list {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.menu-title {
+    font-weight: bold;
+    color: #0086c7;
+    margin: 20px 10px;
+}
+
+.menu-list .items {
+    padding: 6px 0px;
+    border-radius: 2px;
+}
+
+.menu-list .items:hover{
+    background-color: #4fb8ec57;
+}
+
+.menu-list .items a{
+    display: flex;
+    align-items: center;
+}
+
+.menu-list .side-icon{
+    display: block;
+    width: 20px;
+    height: auto;
+    margin-right: 15px;
+    opacity: 0.7;
+}
+
+.menu-list a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+}
+
+.menu-list a:hover {
+    font-size: 1rem;
+    transition: .3s linear;
+}
+
+.content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.content-container{
+    width: 77.5%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.inner-container{
+    width: 70%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    height: fit-content;
+    margin: 20px;
+    margin-left: 100px;
+    padding: 30px 100px;
+    box-shadow: 5px 5px 10px 0px rgba(135,134,138,1);
+    background: rgb(0,134,199);
+    background: linear-gradient(90deg, rgba(0,134,199,1) 0%, rgba(46,175,216,1) 16%, rgba(115,215,247,1) 50%, rgba(46,175,216,1) 88%, rgba(0,134,199,1) 100%);
+}
+
+.inner-container div img{
+    transform: scale(0.6);
+    filter: drop-shadow(10px 10px 20px #0d628c);
+    transition: transform 330ms ease-in-out;
+}
+
+.inner-container div img:hover{
+    transform: scale(0.7);
+}
+
+.inner-container div h1{
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: white;
+    font-size: 30px;
+}
+.inner-container div h2{
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 30px;
+}
+
+.faculty-details{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-left: 100px;
+    margin-top: 20px;
+    width: auto;    
+}
+.avatar{
+    display: flex;
+    background-color:#4fb8ec57 ;
+    height: 150px;
+    align-items: center;
+    width: 400px;
+    border-radius: 10px;
+
+}
+.avatar img{
+    height: 100px;
+    width: 130px;
+}
+.details{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+.name,.id,.depart{
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
+.current
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    margin-left: 100px;
+    margin-top: 20px;
+    width: auto;   
+    height: 50px;
+}
+.current img{
+    height: 20px;
+    width: 20px;
+}
+.green{
+    display: flex;
+    animation: blink infinite 3s;
+}
+@keyframes blink {
+    0%{
+        opacity: 0;
+    }
+    25%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    75%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+    
+}
+.head{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.lect
+{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    width: auto;   
+    height: 50px;
+    background-color:#4fb8ec57 ;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+.code
+{
+    display: flex;
+    align-items: center;
+}
+.room
+{
+    display: flex;
+    align-items: center;
+}
+.time{
+    display: flex;
+    align-items: center;
+}
+.attendance{
+    display: flex;
+    margin-left: 120px;
+    margin-top: 40px;
+    flex-direction: column;
+    
+}
+.generate{
+    display: flex;
+    background-color: #4fb8ec57;
+    width: 91.5%;
+    height: 50px;
+    align-items: center;
+    padding: 20px;
+    padding-left: 50px;
+    border-radius: 10px;
+
+}
+#btn{
+    display: flex;
+    margin-left: 50px;
+    outline: none;
+    background-color: rgba(4, 255, 0, 0.301);
+    border: 2px solid black;
+    height: 40px;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+#btn:hover{
+    transform: scale(1.1);
+    transition: .5s;
+    background-color: white;
+}
+.qr{
+    display: none;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+    width: 20%;
+    margin-left: 400px;
+    height: 400px;
+    padding: 40px;
+    background-color: #4fb8ec57;
+    border-radius: 10px;
+    transition: .2s linear;
+}
+
+.image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.image img{
+    border-radius: 10px;
+
+}
+
+.otp{
+    display: flex;
+    background-color: white;
+    width: 150px;
+    height: 50px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+.remove{
+    display: flex;
+}
+.remBtn{
+    height: 50px;
+    width: 100px;
+    outline: none;
+    background-color: red;
+    border-radius: 40px;
+    color: white;
+    font-size: medium;
+    cursor: pointer;
+}
+.remBtn:hover{
+    transform: scale(1.1);
+    transition: .5s linear;
+}
