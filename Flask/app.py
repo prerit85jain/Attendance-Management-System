@@ -129,6 +129,10 @@ def get_placement_data():
     dict_placement = df_placement[['Year','Students Placed']].to_dict(orient='records')
     return jsonify(plot_url=plot_url, predicted_placement=predicted_placement, dict_placement=dict_placement)
 
+@app.route('/faculty')
+def faculty():
+    return render_template("attendanceFaculty.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
