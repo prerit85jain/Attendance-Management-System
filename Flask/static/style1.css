@@ -285,14 +285,15 @@ body {
     
 }
 .generate{
-    display: flex;
+    display: none;
     background-color: #4fb8ec57;
-    width: 91.5%;
+    width: 81.5%;
     height: 50px;
     align-items: center;
     padding: 20px;
-    padding-left: 50px;
+    padding-left: 40px;
     border-radius: 10px;
+    margin: auto;
 
 }
 #btn{
@@ -364,4 +365,48 @@ body {
 .remBtn:hover{
     transform: scale(1.1);
     transition: .5s linear;
+}
+
+.row{
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin: 20px;
+}
+
+.row input{
+    height: 50px;
+    width: 50px;
+    padding: 5px;
+    font-size: 25px;
+    text-align: center;
+    border-radius: 10px;
+    outline: none;
+    border: 1px solid #a3a3a3;
+}
+
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0px;
+}
+
+.verify{
+    width: 50%;
+    height: 45px;
+    cursor: pointer;
+    font-size: 16px;
+    background: #78c1f3;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.verify:hover{
+    background: #3998d8;
+}
+
+.active{
+    background: #0099ff;
 }

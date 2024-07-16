@@ -13,10 +13,11 @@ remBtn.addEventListener("click",()=>{
 })
 
 function showOtp(){
-    otp=Math.ceil(Math.random()*10000);
+    otp=Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10);
     random.innerText=otp;
     console.log(otp);
 }
+
 
 
 
