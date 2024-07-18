@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.1.6/html5-qrcode.min.js"></script>
 
     <link rel="stylesheet" href="/static/style1.css">
 </head>
@@ -77,15 +78,15 @@
             <section class="content-container">
                 
                 <div class="faculty-details">
-                    <h1>Student-Details</h1>
+                    <h1>Profile</h1>
                     <div class="avatar">
                         <img src="/static/avatar.png" alt="">
                         <div class="details">
                             <div class="name">
-                                <h4>Name:-</h4>
+                                <h4>Name :- </h4>
                             </div>
                             <div class="id">
-                                <h4>University No.:-</h4>
+                                <h4>University Roll No. :- </h4>
                             </div>
                             
                         </div>
@@ -98,24 +99,115 @@
                     <div class="lect">
                         <div class="code">
                             <h3>Lecture Code:-&nbsp;</h3>
-                            <p>BCSC 1008 , Operating Systems</p>
+                            <span>BCSC 1008 , Operating Systems</span>
                         </div>
-                        <div class="room">
+                        <div class="code">
                             <h3>Room No:- &nbsp;</h3>
-                            <p>AB-1, 212</p>
+                            <span>AB-1, 212</span>
                         </div>
-                        <div class="time">
+                        <div class="code">
                             <h3>Timing:- &nbsp;</h3>
-                            <p>12:00pm to 1:00pm</p>
+                            <span>12:00pm to 1:00pm</span>
                         </div>
-                        <button id="btn">Attendance</button>
+                        <button id="btn"><span>Attendance</span></button>                        
+                    </div>
+                    
+                </div>
+                <div class="attendance">
+                    <div class="qr-container">
+                        <div id="qr-reader" style="width: 500px; height: 500px;"></div>
+                        <div id="qr-reader-results"></div>
+                    </div>
+                    <div class="generate">
+                        <div class="row">
+                            <input type="number">
+                            <input type="number" disabled>
+                            <input type="number" disabled>
+                            <input type="number" disabled>
+                        </div>
+                        <button type="button" class="verify">Verify OTP</button>
+                    </div>
+                </div>
+                <div class="current">
+                    <div class="head">
+                        <h1>Upcoming Lectures</h1>
+                    </div>
+                    <div class="lect">
+                        <div class="code">
+                            <h3>Lecture Code:-&nbsp;</h3>
+                            <span>BCSC 1008 , Operating Systems</span>
+                        </div>
+                        <div class="code">
+                            <h3>Room No:- &nbsp;</h3>
+                            <span>AB-1, 212</span>
+                        </div>
+                        <div class="code">
+                            <h3>Timing:- &nbsp;</h3>
+                            <span>12:00pm to 1:00pm</span>
+                        </div>
+                    </div>
+                    <div class="lect">
+                        <div class="code">
+                            <h3>Lecture Code:-&nbsp;</h3>
+                            <span>BCSC 1008 , Operating Systems</span>
+                        </div>
+                        <div class="code">
+                            <h3>Room No:- &nbsp;</h3>
+                            <span>AB-1, 212</span>
+                        </div>
+                        <div class="code">
+                            <h3>Timing:- &nbsp;</h3>
+                            <span>12:00pm to 1:00pm</span>
+                        </div>
+                    </div>
+                    <div class="lect">
+                        <div class="code">
+                            <h3>Lecture Code:-&nbsp;</h3>
+                            <span>BCSC 1008 , Operating Systems</span>
+                        </div>
+                        <div class="code">
+                            <h3>Room No:- &nbsp;</h3>
+                            <span>AB-1, 212</span>
+                        </div>
+                        <div class="code">
+                            <h3>Timing:- &nbsp;</h3>
+                            <span>12:00pm to 1:00pm</span>
+                        </div>
+                    </div>
+                    <div class="lect">
+                        <div class="code">
+                            <h3>Lecture Code:-&nbsp;</h3>
+                            <span>BCSC 1008 , Operating Systems</span>
+                        </div>
+                        <div class="code">
+                            <h3>Room No:- &nbsp;</h3>
+                            <span>AB-1, 212</span>
+                        </div>
+                        <div class="code">
+                            <h3>Timing:- &nbsp;</h3>
+                            <span>12:00pm to 1:00pm</span>
+                        </div>
+                    </div>
+                    <div class="lect">
+                        <div class="code">
+                            <h3>Lecture Code:-&nbsp;</h3>
+                            <span>BCSC 1008 , Operating Systems</span>
+                        </div>
+                        <div class="code">
+                            <h3>Room No:- &nbsp;</h3>
+                            <span>AB-1, 212</span>
+                        </div>
+                        <div class="code">
+                            <h3>Timing:- &nbsp;</h3>
+                            <span>12:00pm to 1:00pm</span>
+                        </div>
                     </div>
                 </div>
                 
             </section>
         </div>
     </div>
-    <script src="/static/script1.js"></script>
+    <script src="/static/script2.js"></script>
    
 
 </body>
