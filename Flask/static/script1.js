@@ -46,4 +46,14 @@ function showOtp(){
     otp=Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10);
     random.innerText=otp;
     console.log(otp);
+
+    expire.innerText = 10;
+    expireInterval = setInterval(function(){
+        expire.innerText--;
+        if(expire.innerText == 0){
+            clearInterval(expireInterval);
+            random.innerText="";
+            qr.style.display="none";
+        }
+    },1000);
 }
