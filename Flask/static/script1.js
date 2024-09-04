@@ -40,4 +40,14 @@ function showOtp() {
 
     random.innerText = otp; // Set the OTP text
     console.log(otp);
+
+    expire.innerText = 10;
+    expireInterval = setInterval(function(){
+        expire.innerText--;
+        if(expire.innerText == 0){
+            clearInterval(expireInterval);
+            random.innerText="";
+            qr.style.display="none";
+        }
+    },1000);
 }
