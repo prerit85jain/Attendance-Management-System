@@ -1,49 +1,43 @@
-const generateBtn=document.querySelector("#btn");
-const qr=document.querySelector(".qr");
-const remBtn=document.querySelector(".remBtn");
-const random=document.querySelector(".random")
-
-// generateBtn.addEventListener("click",()=>{
-//     qr.style.display="flex";
-//     showOtp();
-//     scroll();
-// })
-// remBtn.addEventListener("click",()=>{
-//     qr.style.display="none";
-// })
-
-// function showOtp(){
-//     otp=Math.ceil(Math.random()*10000);
-//     random.innerText=otp;
-//     console.log(otp);
-// }
+const generateBtn = document.querySelector("#btn");
+const qr = document.querySelector(".qr");
+const remBtn = document.querySelector(".remBtn");
+const random = document.querySelector(".random");
+const qrImage = document.getElementById('qrImage'); // Get the QR image element
 
 document.addEventListener('DOMContentLoaded', function() {
-    var btn = document.getElementById('btn');
-    
-    btn.addEventListener('click', function() {
-        qr.style.display="flex";
+    generateBtn.addEventListener('click', function() {
+        // Show the QR section and OTP
+        qr.style.display = "flex";
         showOtp();
         scroll();
+
+        // Fetch the generated QR code from the backend
         fetch('/generate_qr', {
             method: 'POST',
         })
         .then(response => response.json())
         .then(data => {
-            
+            // Set the src of the QR image to the base64 data
+            qrImage.src = data.img_data;
             qrImage.style.display = 'block';
         })
         .catch(error => console.error('Error:', error));
     });
 });
 
-remBtn.addEventListener("click",()=>{
-    qr.style.display="none";
-})
+remBtn.addEventListener("click", () => {
+    // Hide the QR section when the remove button is clicked
+    qr.style.display = "none";
+    qrImage.src = ""; // Clear the QR image source
+});
 
-function showOtp(){
-    otp=Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10);
-    otp=Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10)+""+Math.floor(Math.random()*10);
-    random.innerText=otp;
+function showOtp() {
+    // Generate a 4-digit random OTP
+    otp = Math.floor(Math.random() * 10) + "" +
+          Math.floor(Math.random() * 10) + "" +
+          Math.floor(Math.random() * 10) + "" +
+          Math.floor(Math.random() * 10);
+
+    random.innerText = otp; // Set the OTP text
     console.log(otp);
 }
