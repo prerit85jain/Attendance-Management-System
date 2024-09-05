@@ -128,6 +128,10 @@ def get_placement_data():
 def faculty():
     return render_template("attendanceFaculty.html")
 
+@app.route('/admin_portal')
+def admin_portal():
+    return render_template("admin.html")
+
 @app.route('/generate_qr', methods=['POST'])
 def generate_qr():
     
