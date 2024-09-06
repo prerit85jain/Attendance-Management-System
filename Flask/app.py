@@ -141,13 +141,24 @@ def get_admin_data():
 @app.route('/generate_qr', methods=['POST'])
 def generate_qr():
     
-    generate_img = qrcode.make(["Prerit Jain", "2215500110"])
-    img_path = "static/Img1.png"
-    generate_img.save(img_path)
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_L,
+        box_size=10,
+        border=4,
+    )
+    qr.add_data(["Prerit Jain", "2215500110"])
+    qr.make(fit=True)
+
+    img = qr.make_image(fill='black', back_color='white')
     
-    img_url = f"/{img_path}"
+    img_io = io.BytesIO()
+    img.save(img_io, 'PNG')
+    img_io.seek(0)
     
-    return
+    img_base64 = base64.b64encode(img_io.getvalue()).decode('ascii')
+    
+    return jsonify(img_data=f"data:image/png;base64,{img_base64}")
 
 if __name__ == "__main__":
     app.run(debug=True)
