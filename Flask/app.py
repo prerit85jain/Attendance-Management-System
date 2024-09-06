@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request, json, send_file, url_for
+from flask import Flask, jsonify, render_template, request, json, send_file, url_for, flash, redirect
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -6,6 +6,7 @@ import io
 import base64
 from sklearn.linear_model import LinearRegression
 import qrcode
+import os
 
 app = Flask(__name__)
 
@@ -131,6 +132,11 @@ def faculty():
 @app.route('/admin_portal')
 def admin_portal():
     return render_template("admin.html")
+
+@app.route('/admin_portal', methods=['POST'])
+def get_admin_data():
+    
+    return 'File type not allowed'
 
 @app.route('/generate_qr', methods=['POST'])
 def generate_qr():
