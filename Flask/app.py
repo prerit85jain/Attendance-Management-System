@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template, request, json, send_file, url_for
+from flask import Flask, jsonify, render_template, request, json, send_file, url_for, flash, redirect
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -6,6 +6,7 @@ import io
 import base64
 from sklearn.linear_model import LinearRegression
 import qrcode
+import os
 
 app = Flask(__name__)
 
@@ -130,30 +131,23 @@ def faculty():
 
 @app.route('/admin_portal')
 def admin_portal():
-    return render_template("admin.html", courses=list(data_admission.keys())[1:])
+    return render_template("admin.html")
+
+@app.route('/admin_portal', methods=['POST'])
+def get_admin_data():
+    
+    return 'File type not allowed'
 
 @app.route('/generate_qr', methods=['POST'])
 def generate_qr():
     
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=10,
-        border=4,
-    )
-    qr.add_data(["Prerit Jain", "2215500110"])
-    qr.make(fit=True)
-
-    img = qr.make_image(fill='black', back_color='white')
+    generate_img = qrcode.make(["Prerit Jain", "2215500110"])
+    img_path = "static/Img1.png"
+    generate_img.save(img_path)
     
-    img_io = io.BytesIO()
-    img.save(img_io, 'PNG')
-    img_io.seek(0)
+    img_url = f"/{img_path}"
     
-    img_base64 = base64.b64encode(img_io.getvalue()).decode('ascii')
-    
-    return jsonify(img_data=f"data:image/png;base64,{img_base64}")
-
+    return
 
 if __name__ == "__main__":
     app.run(debug=True)
