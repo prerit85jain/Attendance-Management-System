@@ -46,7 +46,7 @@ def create_admission_plot(course):
     return plot_url, int(predicted_admission)
 
 def read_data():
-    departments = ['BBA', 'Btech Civil', 'Btech CSE', 'Btech Electrical', 'Btech Electronics', 'MBA', 'MTech']
+    departments = ['BBA', 'BTech Civil', 'BTech CSE', 'BTech Electrical', 'BTech Electronics', 'MBA', 'MTech']
     data = {}
     for dept in departments:
         file_path = f'./Dataset/Placements/{dept}.csv'
@@ -130,7 +130,7 @@ def faculty():
 
 @app.route('/admin_portal')
 def admin_portal():
-    return render_template("admin.html")
+    return render_template("admin.html", courses=list(data_admission.keys())[1:])
 
 @app.route('/generate_qr', methods=['POST'])
 def generate_qr():

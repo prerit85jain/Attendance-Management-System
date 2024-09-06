@@ -3,12 +3,14 @@ const qr = document.querySelector(".qr");
 const remBtn = document.querySelector(".remBtn");
 const random = document.querySelector(".random");
 const qrImage = document.getElementById('qrImage'); // Get the QR image element
+let flag=true;
 
 document.addEventListener('DOMContentLoaded', function() {
     generateBtn.addEventListener('click', function() {
         // Show the QR section and OTP
         qr.style.display = "flex";
         showOtp();
+        flag=true;
         scroll();
 
         // Fetch the generated QR code from the backend
@@ -48,6 +50,7 @@ function showOtp() {
             clearInterval(expireInterval);
             random.innerText="";
             qr.style.display="none";
+            flag=false;
         }
     },1000);
 }
