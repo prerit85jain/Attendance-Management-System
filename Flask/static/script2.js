@@ -53,16 +53,19 @@ button.addEventListener("click", () => {
     }
 });
 
+let html5QrCode ;
+
 function startScanner() {
     console.log('Starting scanner...');
-    const html5QrCode = new Html5Qrcode("qr-reader");
+    html5QrCode = new Html5Qrcode("qr-reader");
+
 
     function onScanSuccess(qrCodeMessage) {
-        // Handle the scanned QR code data
         console.log(`QR Code detected: ${qrCodeMessage}`);
         sendQrDataToServer(qrCodeMessage);
         
-        // Clear the scanner
+        stopScanner();
+
         html5QrCode.clear().then(_ => {
             console.log("QR Code scanner cleared.");
             qrContainer.style.display = "none";
@@ -72,7 +75,6 @@ function startScanner() {
     }
 
     function onScanFailure(error) {
-        // Handle scan failure, usually better to ignore and keep scanning
         console.warn(`QR Code scan error: ${error}`);
     }
 
@@ -87,6 +89,19 @@ function startScanner() {
     ).catch(error => {
         console.error("Unable to start scanning. Error: ", error);
     });
+}
+
+function stopScanner() {
+    if (html5QrCode) {
+        html5QrCode.stop().then(() => {
+            console.log("QR Code scanner stopped.");
+            qrContainer.style.display = "none"; 
+        }).catch(error => {
+            console.error("Error stopping QR Code scanner: ", error);
+        });
+    } else {
+        console.log("No active QR code scanning session.");
+    }
 }
 
 function sendQrDataToServer(qrData) {
@@ -105,4 +120,8 @@ function sendQrDataToServer(qrData) {
     .catch((error) => {
         console.error('Error:', error);
     });
+}
+
+function clearOTPs() {
+    inputs.forEach(input => input.value = "");  
 }
