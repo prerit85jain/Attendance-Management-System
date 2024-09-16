@@ -7,6 +7,8 @@ import base64
 from sklearn.linear_model import LinearRegression
 import qrcode
 import os
+import openpyxl
+from zipfile import BadZipFile
 
 app = Flask(__name__)
 
@@ -159,6 +161,48 @@ def generate_qr():
     img_base64 = base64.b64encode(img_io.getvalue()).decode('ascii')
     
     return jsonify(img_data=f"data:image/png;base64,{img_base64}")
+
+def update_attendance(name, roll_number):
+    file_path = './Attendance.xlsx'
+    
+    # Check if the file exists
+    if not os.path.exists(file_path):
+        print(f"File not found at {file_path}. Creating a new one.")
+        workbook = openpyxl.Workbook()
+        sheet = workbook.active
+        sheet.title = "Attendance"
+        sheet.append(["Name", "Roll Number"])
+        workbook.save(file_path)
+        print(f"New Excel file created at {file_path}.")
+    
+    try:
+        workbook = openpyxl.load_workbook(file_path)
+        sheet = workbook.active
+        sheet.append([name, roll_number])
+        workbook.save(file_path)
+        print(f"Attendance updated for {name} ({roll_number}).")
+    
+    except BadZipFile:
+        print(f"Error: The file at {file_path} is corrupted or not a valid Excel file.")
+    
+    except openpyxl.utils.exceptions.InvalidFileException:
+        print(f"Error: The file at {file_path} is not a valid Excel file.")
+    
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+@app.route('/scan', methods=['POST'])
+def scan():
+    qr_code_data = request.json.get('qrData')
+    if qr_code_data:
+        try:
+            name, roll_number = qr_code_data.split(',')
+            update_attendance(name.strip(), roll_number.strip()) 
+            return jsonify({'data': f'Name: {name}, Roll Number: {roll_number}'})
+        except ValueError:
+            return jsonify({'error': 'QR code data is not in expected format (name, roll_number)'})
+    else:
+        return jsonify({'error': 'No QR code found'})
 
 if __name__ == "__main__":
     app.run(debug=True)
