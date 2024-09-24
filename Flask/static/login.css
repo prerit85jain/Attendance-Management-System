@@ -71,12 +71,17 @@
     width: 30%;
     flex: 1;
     padding: 40px;
-    position: relative;
+    text-align: center;
+}
+.container .side-container h1{
+    display: inline;
+}
+.container .side-container{
+    color: white;
+    text-shadow: 2px 2px 12px rgba(32, 32, 32, 0.501);
 }
 .container .side-container img{
-    max-width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
+    margin-top: 50px;
+    height: 300px;
+    width: 400px;
 }
