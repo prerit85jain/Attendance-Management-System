@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./static/login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div>
+                <span class="heading">Welcome To Login Page</span>
+            </div>
+            {% if error %}
+                <div class="error">{{ error }}</div>
+            {% endif %}
+            <form action="{{ url_for('login_post') }}" method="POST">
+                <label for="college-id">College ID:</label>
+                <input type="text" id="college-id" name="college-id" placeholder="Enter your ID Number" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password" required><br><br>
+                <input type="submit" class="button" value="Login">
+            </form>
+        </div>
+        <div class="side-container">
+            <img src="../static/image.png">
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./static/login.js"></script>
+</body>
+</html>
