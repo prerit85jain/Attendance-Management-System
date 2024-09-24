@@ -1,10 +1,12 @@
-const generateBtn = document.querySelector("#btn");
+const Btn = document.querySelector("#btn");
 const qrContainer = document.querySelector(".qr-container");
 const inputs = document.querySelectorAll("input");
 const button = document.querySelector(".verify");
 const generate = document.querySelector(".generate");
+const student_name=document.getElementById("student_name")
+const student_roll=document.getElementById("student_roll")
 
-generateBtn.addEventListener("click", () => {
+Btn.addEventListener("click", () => {
     qrContainer.style.display = "flex";
 	generate.style.display = "flex";
     startScanner();
@@ -53,20 +55,17 @@ button.addEventListener("click", () => {
     }
 });
 
-let html5QrCode ;
-
+let html5QrCode;
 function startScanner() {
     console.log('Starting scanner...');
     html5QrCode = new Html5Qrcode("qr-reader");
 
-
     function onScanSuccess(qrCodeMessage) {
-        console.log(`QR Code detected: ${qrCodeMessage}`);
-        sendQrDataToServer(qrCodeMessage);
-        
         stopScanner();
+        console.log(`QR Code detected: ${qrCodeMessage}`);
+        sendQrDataToServer(qrCodeMessage)
 
-        html5QrCode.clear().then(_ => {
+        html5QrCode.clear().then(() => {
             console.log("QR Code scanner cleared.");
             qrContainer.style.display = "none";
         }).catch(error => {
@@ -75,14 +74,14 @@ function startScanner() {
     }
 
     function onScanFailure(error) {
-        console.warn(`QR Code scan error: ${error}`);
+        console.warn(`QR Code scan error: ${error.message || error}`);
     }
 
     html5QrCode.start(
-        { facingMode: "environment" }, // camera facing mode
+        { facingMode: "user" },
         {
-            fps: 10,    // frames per second
-            qrbox: 250  // QR scanning box size
+            fps: 15,
+            qrbox: { width: 400, height: 400 }
         },
         onScanSuccess,
         onScanFailure
@@ -104,23 +103,32 @@ function stopScanner() {
     }
 }
 
-function sendQrDataToServer(qrData) {
-    console.log('Sending QR data to server:', qrData);
-    fetch('/scan', {
+function sendQrDataToServer(qrCodeMessage) {
+    let student_details = student_name.innerText+","+student_roll.innerText+","+qrCodeMessage;
+    console.log('Sending QR data to server:', student_details);
+    
+    
+    fetch('/scanStudent', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ qrData: qrData })
+        body: JSON.stringify({student_details:student_details})// Convert the qrData to a JSON string
     })
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse JSON from the response
+    })
     .then(data => {
-        console.log('Success:', data);
+        console.log('Success:', data); // Log the success message from the server
     })
     .catch((error) => {
-        console.error('Error:', error);
+        console.error('Error:', error); // Catch and log errors
     });
 }
+    
 
 function clearOTPs() {
     inputs.forEach(input => input.value = "");  
