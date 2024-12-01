@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 import io
 import base64
 from sklearn.linear_model import LinearRegression
+import threading
 import qrcode
 import os
 import openpyxl
@@ -434,6 +435,36 @@ def index():
     
     # Pass the data to the template
     return render_template('attendanceFaculty.html', data=data)
+
+stored_otp = None
+
+# Save OTP route
+@app.route('/save-otp', methods=['POST'])
+def save_otp():
+    global stored_otp
+    data = request.get_json()
+    stored_otp = data.get('otp')
+    print(f"OTP saved app.py: {stored_otp}")
+    def clear_otp():
+        global stored_otp
+        stored_otp = None
+        print("OTP expired")
+
+    threading.Timer(30.0, clear_otp).start()
+
+    return jsonify({"message": "OTP saved successfully"})
+
+
+@app.route('/validate-otp', methods=['POST'])
+def validate_otp():
+    global stored_otp
+    data = request.get_json()
+    entered_otp = data.get('verify')
+    if entered_otp == stored_otp:
+        stored_otp = None  
+        return jsonify({"valid": True})
+    else:
+        return jsonify({"valid": False})
 
 
 if __name__ == "__main__":

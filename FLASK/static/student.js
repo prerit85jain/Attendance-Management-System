@@ -48,12 +48,22 @@ button.addEventListener("click", () => {
     inputs.forEach((input) => {
         verify += input.value;
     });
-    if (verify === OTP) {
-        alert("Correct");
-        clearOTPs();
-    } else {
-        alert("Incorrect");
-    }
+    fetch('/validate-otp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ verify })
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.valid) {
+                clearOTPs();
+            } else {
+                alert("Incorrect OTP");
+            }
+        })
+        .catch(error => console.error('Error:', error));
 });
 
 let html5QrCode;
@@ -139,4 +149,5 @@ function sendQrDataToServer(qrCodeMessage) {
 
 function clearOTPs() {
     inputs.forEach(input => input.value = "");  
+    stopScanner();
 }

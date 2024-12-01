@@ -49,7 +49,18 @@ function showOtp() {
     random.innerText = otp; // Set the OTP text
     console.log(otp);
 
-    expire.innerText = 10;
+    fetch('/save-otp', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ otp })
+    })
+        .then(response => response.json())
+        .then(data => console.log('OTP saved faculty.js:', data))
+        .catch(error => console.error('Error:', error));
+
+    expire.innerText = 30;
     expireInterval = setInterval(function(){
         expire.innerText--;
         if(expire.innerText == 0){
