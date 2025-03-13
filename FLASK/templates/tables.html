@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQLite Database Tables</title>
+    <link rel="stylesheet" href="./static/style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0086c7;
+        }
+        .tables-container{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="side-heading">
+            <img src="../static/icon.png" alt="GLA University Logo" class="logo">
+            <div class="header-info">GLA UNIVERSITY</div>
+        </div>
+        <div class="menu">
+            <h1>Attendance DashBoard</h1>
+        </div>
+    </header>
+    <div class="tables-container">
+        {% for table_name, table_data in data.items() %}
+        <h2>Table: {{ table_name }}</h2>
+        <table>
+            <tr>
+                {% for col in table_data.columns %}
+                <th>{{ col }}</th>
+                {% endfor %}
+            </tr>
+            {% for row in table_data.rows %}
+            <tr>
+                {% for cell in row %}
+                <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </table>
+        {% endfor %}
+    </div>
+</body>
+
+</html>
