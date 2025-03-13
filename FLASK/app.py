@@ -467,5 +467,38 @@ def validate_otp():
         return jsonify({"valid": False})
 
 
+
+def fetch_all_tables():
+    conn = sqlite3.connect("attendance.db")
+    cursor = conn.cursor()
+
+    # Fetch all table names
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+    
+    database_data = {}
+
+    # Fetch data from each table
+    for table in tables:
+        table_name = table[0]
+        cursor.execute(f"SELECT * FROM {table_name}")
+        rows = cursor.fetchall()
+        
+        # Fetch column names
+        cursor.execute(f"PRAGMA table_info({table_name})")
+        columns = [col[1] for col in cursor.fetchall()]
+        
+        database_data[table_name] = {"columns": columns, "rows": rows}
+
+    conn.close()
+    return database_data
+
+@app.route("/tables")
+def fetch():
+    data = fetch_all_tables()
+    return render_template("tables.html", data=data)
+
+
+
 if __name__ == "__main__":
     app.run(debug=True)
